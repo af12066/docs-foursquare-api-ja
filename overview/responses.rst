@@ -84,3 +84,49 @@ Foursquare は可能な限り問題の一般的なクラスを示すのに適切
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
 | 500 (Internal Server Error) | Foursquare のサーバが不調です。おそらくリクエストは有効ですが、あとで再試行する必要があります。                                               |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. Additional details are provided in the errorType. It should be one of the following.
+
+さらなる詳細は ``errorType`` に記述されています。以下のいずれかになります。
+
+.. errorType	Status Code	Explanation
+.. invalid_auth	401	OAuth token was not provided or was invalid.
+.. param_error	400	A required parameter was missing or a parameter was malformed. This is also used if the resource ID in the path is incorrect.
+.. endpoint_error	404	The requested path does not exist.
+.. not_authorized	403	Although authentication succeeded, the acting user is not allowed to see this information due to privacy restrictions.
+.. rate_limit_exceeded	403	Rate limit for this hour exceeded.
+.. quota_exceeded	429	Daily call quota exceeded.
+.. deprecated	200	Something about this request is using deprecated functionality, or the response format may be about to change.
+.. server_error	Varies	Server is currently experiencing issues. Check status.foursquare.com for updates.
+.. other	Varies	Some other type of error occurred.
+
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+| ``errorType``       | ステータスコード | 説明                                                                                                                   |
++=====================+==================+========================================================================================================================+
+| invalid_auth        | 401              | OAuth トークンが提供されていないか無効です。                                                                           |
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+| param_error         | 400              | 必要なパラメータが欠けているか不正です。パス内のリソース ID が正しくない場合にも使用されます。                         |
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+| endpoint_error      | 404              | リクエストしようとしたパスが存在しません。                                                                             |
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+| not_authorized      | 403              | 認証は成功していますが、プライバシー制限のため情報を見ることを許可されていません。                                     |
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+| rate_limit_exceeded | 403              | 時間あたりのレート制限を超えています。                                                                                 |
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+| quota_exceeded      | 429              | 一日あたりのコールクォータを超えています。                                                                             |
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+| deprecated          | 200              | リクエストに関する何らかの廃止された機能を使用しているか、レスポンスフォーマットが変更されている場合があります。       |
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+| server_error        | 場合による       | サーバ側で問題が発生しています。`status.foursquare.com <http://status.foursquare.com/>`_ で状態を確認してみてください。|
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+| other               | 場合による       | ほかのエラーが発生しています。                                                                                         |
++---------------------+------------------+------------------------------------------------------------------------------------------------------------------------+
+
+.. Errors will usually include an errorDetail field with additional information about what went wrong, intended for the developer. In some cases, the server may include an errorMessage, which is a localized string intended for the client to display back to the user directly.
+
+エラーには ``errorDetail`` フィールドが含まれ、開発者向けの追加情報が記述されています。
+場合によってサーバの ``errorMessage`` を含む場合があります。これはクライアントがユーザに直接表示するためのローカライズされた文字列です。
+
+.. seealso::
+
+   Responses & Error (https://developer.foursquare.com/overview/responses)
