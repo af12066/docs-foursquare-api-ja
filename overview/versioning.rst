@@ -81,7 +81,12 @@ Foursquare の成長と発展にともなって、API やそのバージョン�
 
 .. Since there is only a single API that powers both Swarm and Foursquare, sometimes it makes sense for the same endpoint to return different information in its response, depending on context. The m (for "mode") param gives developers control over whether they want Swarm- or Foursquare-style API responses—for example, the Users Detail endpoint might return information check-ins with m=swarm but information about a user's tips with m=foursquare.
 
+Swarm と Foursquare のどちらでも動作する API は 1 つだけであるため、場合によっては同じエンドポイントについて、レスポンスに対して異なる情報を返すことが理にかなっていることがあります。
+``m`` (mode) パラメータは Swarm または Foursquare スタイルの API レスポンスを使用するかどうかを指定できます -- 例えば、Users Detail エンドポイントは ``m=swarm`` でチェックインの情報を返しますが、 ``m=foursquare`` でユーザの Tips について返す場合があります。
+
 .. Unless your application evolves significantly, it seems unlikely that you will ever have to change the m param values you pass in.
+
+アプリケーションが大幅に変更されない限り、 ``m`` パラメータの値を変更して渡す必要はありません。
 
 .. _internationalization:
 
@@ -90,9 +95,16 @@ Foursquare の成長と発展にともなって、API やそのバージョン�
 
 .. You can specify the locale by setting the Accept-Language HTTP header in your request. Alternatively, you can add a locale=XXX parameter to your request but HTTP header specification is preferred. We currently support en (default), es, fr, de, it, ja, th, tr, ko, ru, pt, and id.
 
+リクエストの ``Accept-Language`` HTTP ヘッダにてロケールを指定できます。 ``locale=XXX`` パラメータも追加できますが、HTTP ヘッダの指定が優先されます。現在は en（デフォルト）、fr、de、it、ja、th、tr、ko、ru、pt、id をサポートしています。
+
 .. If nothing is specified, for geographical entities (e.g., city names), we'll fall back to using the language that's most popular in the country for that venue.
 
+ロケールを指定しない場合、地理的なエンティティ（例: 都市名）についてはそのベニューのある国でもっとも使われる言語が選択されます。
+
 .. Foursquare also supports many country-specific subcategories in our venue categories. "Suggested Countries" are listed in our category tree for categories that we think will only apply in certain countries.
+
+Foursquare はベニューカテゴリに対して多くの国ごとのサブカテゴリをサポートしています。
+特定の国でのみ適用されるべきカテゴリについては、"Suggested Countries" がカテゴリツリーにリストアップされます。
 
 .. seealso::
 
