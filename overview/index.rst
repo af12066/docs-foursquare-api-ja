@@ -63,6 +63,8 @@ The Merchant Platform allows developers to write applications that help register
    :maxdepth: 1
    
    Foursquare ユーザとの接続 <auth.rst>
+   レスポンス & エラー <responses.rst>
+   バージョン <versioning.rst>
 
 .. seealso::
 
