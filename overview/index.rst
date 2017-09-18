@@ -65,6 +65,7 @@ The Merchant Platform allows developers to write applications that help register
    Foursquare ユーザとの接続 <auth.rst>
    レスポンス & エラー <responses.rst>
    バージョン <versioning.rst>
+   帰属とリンク <attribution.rst>
 
 .. seealso::
 
